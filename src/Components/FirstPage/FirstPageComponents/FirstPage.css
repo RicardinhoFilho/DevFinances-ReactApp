@@ -1,0 +1,67 @@
+:root {
+  --dark-blue: #5e365f;
+  --dark-green: #2d4a22;
+  --light-green: #3dd705;
+}
+/*Header------------------------------------------------------------------------------------------------------------*/
+
+.title {
+  color: white;
+  background-color: var(--dark-green);
+  padding: 1em;
+}
+
+/*Card----------------------------------------------------------------------------------------------------------------------*/
+
+.cards {
+  display: flex;
+  align-items: center;
+}
+
+#card-value {
+  margin: auto;
+  margin-top: -0.6em;
+  margin-bottom: 2em;
+
+  padding-right: 1em;
+  padding-left: 1em;
+
+  background-color: white;
+  color: var(--dark-blue);
+
+  border-radius: 0.5rem;
+}
+
+/*Table----------------------------------------------------------------------------------------------------------------------*/
+
+#table-finance {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/*Buttons----------------------------------------------------------------------------------------------------------------------*/
+
+.edit-button,
+.trash-button {
+  margin-left: 10%;
+}
+
+.edit-button {
+  background-color: yellow;
+  opacity: 0.6;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.trash-button {
+  background-color: red;
+  opacity: 0.6;
+}
+
+.trash-button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
