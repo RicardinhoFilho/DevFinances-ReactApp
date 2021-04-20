@@ -18,15 +18,12 @@ const TableComponent = () => {
   }
 
   const rows = [
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-    createData("Eclair", 262, 16.0, 24, 6.0),
-    createData("Cupcake", 305, 3.7, 67, 4.3),
-    createData("Gingerbread", 356, 16.0, 49, 3.9),
+    createData("Frozen yoghurt", 1, 6.0, 24, 4.0),
+    createData("Ice cream sandwich", 2, 9.0, 37, 4.3),
+    createData("Eclair", 3, 16.0, 24, 6.0),
+    createData("Cupcake",4, 3.7, 67, 4.3),
+    createData("Gingerbread", 5, 16.0, 49, 3.9),
   ];
-
-  
-  
 
   return (
     <div id="table-finance">
@@ -48,10 +45,10 @@ const TableComponent = () => {
                 <TableCell align="right">{row.calories}</TableCell>
                 <TableCell align="right">{row.fat}</TableCell>
                 <TableCell align="right">
-                  <button className="edit-button" >
+                  <button className="edit-button">
                     <img src={editImage} alt="Edit" />
                   </button>
-                  <button className="trash-button" >
+                  <button className="trash-button">
                     <img src={trashImage} alt="Edit" />
                   </button>
                 </TableCell>
