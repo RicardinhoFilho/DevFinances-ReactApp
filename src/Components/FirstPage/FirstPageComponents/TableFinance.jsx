@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FirstPage.css";
 import editImage from "./Assets/Edit.svg";
 import trashImage from "./Assets/Trash.svg";
+import ModalEdit from "./ModalEdit";
+import ModalDelete from "./ModalDelete";
 import {
   Table,
   TableBody,
@@ -12,7 +14,23 @@ import {
   Paper,
 } from "@material-ui/core";
 
-const TableComponent = () => {
+const TableComponent = ( ) => {
+  const [itemId, setItemId] = useState(0);
+  const [modalEditState, setModalEditState] = useState(false);
+  const [modalDeleteState, setModalDeleteState] = useState(false);
+
+  const modalDeleteOpen = () => {
+    if (modalDeleteState === true) {
+      return <ModalDelete option={modalEditState} id={itemId} />;
+    }
+  };
+
+  const modalEditOpen = () => {
+    if (modalEditState === true) {
+      return <ModalEdit option={modalEditState} id={itemId} />;
+    }
+  };
+
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
   }
@@ -21,7 +39,7 @@ const TableComponent = () => {
     createData("Frozen yoghurt", 1, 6.0, 24, 4.0),
     createData("Ice cream sandwich", 2, 9.0, 37, 4.3),
     createData("Eclair", 3, 16.0, 24, 6.0),
-    createData("Cupcake",4, 3.7, 67, 4.3),
+    createData("Cupcake", 4, 3.7, 67, 4.3),
     createData("Gingerbread", 5, 16.0, 49, 3.9),
   ];
 
@@ -45,11 +63,24 @@ const TableComponent = () => {
                 <TableCell align="right">{row.calories}</TableCell>
                 <TableCell align="right">{row.fat}</TableCell>
                 <TableCell align="right">
-                  <button className="edit-button">
+                  <button
+                    className="edit-button"
+                    onClick={(event) => {
+                      setItemId(1);
+                      setModalEditState(true);
+                    }}
+                  >
                     <img src={editImage} alt="Edit" />
                   </button>
-                  <button className="trash-button">
-                    <img src={trashImage} alt="Edit" />
+                  <button
+                    className="trash-button"
+                    onClick={(event) => {
+                      setItemId(2);
+                      setModalDeleteState(true);
+                      console.log(modalDeleteState)
+                    }}
+                  >
+                    <img src={trashImage} alt="Delete" />
                   </button>
                 </TableCell>
               </TableRow>
@@ -57,6 +88,9 @@ const TableComponent = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      {modalDeleteOpen()}
+      {modalEditOpen()}
+      
     </div>
   );
 };
