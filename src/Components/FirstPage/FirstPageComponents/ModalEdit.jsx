@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal } from "@material-ui/core";
 import { Card, Typography, TextField, Button } from "@material-ui/core";
 
-const ModalEdit = ({ option, setModalEditState, id }) => {
+const ModalEdit = ({ option, setModalEditState, item }) => {
   const [open, setOpen] = useState(option);
   useEffect(() => {
     if (open != option) {
@@ -25,11 +25,11 @@ const ModalEdit = ({ option, setModalEditState, id }) => {
           Editar Transação
         </Typography>
         <form>
-          <TextField value={"Pizza"} margin="normal" required />
+          <TextField value={item.title} margin="normal" required />
           <br />
-          <TextField value={`R$${id}`} margin="normal" required />
+          <TextField value={`R$${item._value}`} margin="normal" required />
           <br />
-          <TextField value={"15/02/2002"} margin="normal" required />
+          <TextField value={item._date} margin="normal" required />
           <br />
           <Button
             variant="contained"

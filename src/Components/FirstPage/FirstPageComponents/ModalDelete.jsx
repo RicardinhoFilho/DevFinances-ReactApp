@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "@material-ui/core";
 import {Typography, TextField, Button } from "@material-ui/core";
-const ModalDelete = ({ option, setModalDeleteState, id }) => {
+const ModalDelete = ({ option, setModalDeleteState, item }) => {
   const [open, setOpen] = useState(option);
   useEffect(() => {
     if (open != option) {
@@ -24,16 +24,16 @@ const ModalDelete = ({ option, setModalDeleteState, id }) => {
           Deletar Transação
         </Typography>
         <Typography variant="h3" align="center" className="delete-text">
-          Pizza
+          {item.title}
         </Typography>
 
         <div className="delete-item-information">
           <Typography variant="h4" className="delete-text">
-            R$ 60
+            {`$${item._value}`}
           </Typography>
 
           <Typography variant="h4" className="delete-text">
-            15/12/2019
+          {item._date}
           </Typography>
         </div>
 

@@ -18,7 +18,7 @@ import {
 } from "@material-ui/core";
 
 const TableComponent = () => {
-  const [itemId, setItemId] = useState(0);
+  const [item, setItem] = useState([]);
   const [modalEditState, setModalEditState] = useState(false);
   const [modalDeleteState, setModalDeleteState] = useState(false);
   const [data, setData] = useState([]);
@@ -32,7 +32,7 @@ const TableComponent = () => {
       return (
         <ModalEdit
           option={modalEditState}
-          id={itemId}
+          item={item}
           setModalEditState={setModalEditState}
         />
       );
@@ -44,7 +44,7 @@ const TableComponent = () => {
       return (
         <ModalDelete
           option={modalDeleteState}
-          id={itemId}
+          item={item}
           setModalDeleteState={setModalDeleteState}
         />
       );
@@ -64,11 +64,6 @@ const TableComponent = () => {
     }
   }
 
-  function createData(id, title, _value, _date) {
-    console.log("id=>", id);
-    return { id, title, _value, _date };
-  }
-
   
 
   return (
@@ -83,19 +78,20 @@ const TableComponent = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row) => (
-              <TableRow key={row.id}>
+            {data.map((transaction) => (
+              <TableRow key={transaction.id}>
                 <TableCell component="th" scope="row">
-                  {row.title}
+                  {transaction.title}
                 </TableCell>
-                <TableCell align="right">{row._value}</TableCell>
-                <TableCell align="right">{row._date}</TableCell>
+                <TableCell align="right">{transaction._value}</TableCell>
+                <TableCell align="right">{transaction._date}</TableCell>
                 <TableCell align="right">
                   <button
                     className="edit-button"
                     onClick={(event) => {
-                      console.log("cliquei");
-                      setItemId(1);
+                      
+                      setItem(transaction);
+                     console.log(transaction)
 
                       setModalEditState(true);
                     }}
@@ -105,9 +101,8 @@ const TableComponent = () => {
                   <button
                     className="trash-button"
                     onClick={(event) => {
-                      setItemId(2);
+                      setItem(transaction);
                       setModalDeleteState(true);
-                      console.log(modalDeleteState);
                     }}
                   >
                     <img src={trashImage} alt="Delete" />
