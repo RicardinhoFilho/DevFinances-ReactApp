@@ -17,18 +17,19 @@ const ModalDelete = ({ option, id }) => {
         <Typography variant="h6" align="center" className="title">
           Deletar Transação
         </Typography>
-        <Typography variant="h6" align="center">
+        <Typography variant="h3" align="center" className="delete-text">
           Pizza
         </Typography>
-        <Typography variant="h6" align="center">
-          R$40
-        </Typography>
-        <Typography variant="h6" align="center">
-          "12/12/2012"
-        </Typography>
-        <Typography variant="h6" align="center">
-          "Pizza"
-        </Typography>
+
+        <div className="delete-item-information">
+          <Typography variant="h4" className="delete-text">
+            R$ 60
+          </Typography>
+
+          <Typography variant="h4" className="delete-text">
+            15/12/2019
+          </Typography>
+        </div>
 
         <Button type="submit" variant="contained" color="secondary" id="button">
           Cancelar

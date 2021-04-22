@@ -19,15 +19,17 @@ const TableComponent = ( ) => {
   const [modalEditState, setModalEditState] = useState(false);
   const [modalDeleteState, setModalDeleteState] = useState(false);
 
-  const modalDeleteOpen = () => {
-    if (modalDeleteState === true) {
-      return <ModalDelete option={modalEditState} id={itemId} />;
-    }
-  };
+  
 
   const modalEditOpen = () => {
     if (modalEditState === true) {
       return <ModalEdit option={modalEditState} id={itemId} />;
+    }
+  };
+
+  const modalDeleteOpen = () => {
+    if (modalDeleteState === true) {
+      return <ModalDelete option={modalDeleteState} id={itemId} />;
     }
   };
 

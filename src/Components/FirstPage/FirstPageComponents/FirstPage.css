@@ -78,6 +78,20 @@
   margin-top: 10%;
 }
 
+.delete-text{
+  color: var(--dark-blue);
+}
+
+.delete-item-information{
+
+  display: grid;
+  grid-template-columns: repeat(2,0.5fr);
+
+  margin-top: 2vw;
+  margin-bottom: 3vw;
+  margin-left: 10vw;
+}
+
 /*Form----------------------------------------------------------------------------------------------------------------------*/
 
 form {
@@ -88,9 +102,16 @@ form {
   margin-left: 18vw;
 }
 
-/*Button----------------------------------------------------------------------------------------------------------------------*/
+/*Buttons----------------------------------------------------------------------------------------------------------------------*/
 #button {
   width: 20vw;
   margin-top: 2vw;
   margin-left: 1vw;
+}
+
+#add-transaction-button{
+  
+ margin-left: 40vw;
+ margin-bottom: 2vw;
+
 }
