@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import "./FirstPage.css";
 import editImage from "./Assets/Edit.svg";
 import trashImage from "./Assets/Trash.svg";
@@ -22,6 +22,10 @@ const TableComponent = () => {
   const [modalEditState, setModalEditState] = useState(false);
   const [modalDeleteState, setModalDeleteState] = useState(false);
   const [data, setData] = useState([]);
+
+  useEffect(()=>{
+    getTransactions();
+  }, data)
 
   const modalEditOpen = () => {
     if (modalEditState === true) {
