@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "@material-ui/core";
-import { Card, Typography, TextField, Button } from "@material-ui/core";
-
-const ModalDelete = ({ option, id }) => {
-  const [defineModal, setDefineModal] = useState(false);
-
+import {Typography, TextField, Button } from "@material-ui/core";
+const ModalDelete = ({ option, setModalDeleteState, id }) => {
+  const [open, setOpen] = useState(option);
   useEffect(() => {
-    if (defineModal != option) {
-      setDefineModal(option);
+    if (open != option) {
+      handleOpen();
     }
-  }, {});
+  });
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setModalDeleteState(false);
+  };
 
   return (
-    <Modal open={defineModal} onClose={!defineModal}>
+    <Modal open={open} onClose={handleClose}>
       <div className="modal">
         <Typography variant="h6" align="center" className="title">
           Deletar Transação
@@ -31,7 +37,14 @@ const ModalDelete = ({ option, id }) => {
           </Typography>
         </div>
 
-        <Button type="submit" variant="contained" color="secondary" id="button">
+        <Button
+          variant="contained"
+          color="secondary"
+          id="button"
+          onClick={(event) => {
+            handleClose();
+          }}
+        >
           Cancelar
         </Button>
         <Button type="submit" variant="contained" color="primary" id="button">

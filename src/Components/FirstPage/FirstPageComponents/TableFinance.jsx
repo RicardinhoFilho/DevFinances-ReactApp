@@ -4,6 +4,9 @@ import editImage from "./Assets/Edit.svg";
 import trashImage from "./Assets/Trash.svg";
 import ModalEdit from "./ModalEdit";
 import ModalDelete from "./ModalDelete";
+import axios from "axios";
+
+//http://localhost:3333/transactions
 import {
   Table,
   TableBody,
@@ -23,16 +26,21 @@ const TableComponent = ( ) => {
 
   const modalEditOpen = () => {
     if (modalEditState === true) {
-      return <ModalEdit option={modalEditState} id={itemId} />;
+      return <ModalEdit option={modalEditState} id={itemId}  setModalEditState={setModalEditState} />;
     }
   };
 
   const modalDeleteOpen = () => {
     if (modalDeleteState === true) {
-      return <ModalDelete option={modalDeleteState} id={itemId} />;
+      return <ModalDelete option={modalDeleteState} id={itemId} setModalDeleteState={setModalDeleteState} />;
     }
   };
 
+  async function getTransactions(){
+
+    const response = await axios.get("http://localhost:3333/transactions")
+
+  } 
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
   }

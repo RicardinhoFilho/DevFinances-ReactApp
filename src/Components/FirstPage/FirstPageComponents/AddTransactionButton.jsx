@@ -9,9 +9,7 @@ const AddTransactionButton = (option) => {
 
   const modalAddOpen = () => {
     if (modalAddState === true) {
-      
-      console.log(modalAddState)
-      return <ModalAdd option={true} />;
+      return <ModalAdd option={modalAddState} setModalAddState={setModalAddState} />;
     }
   };
   

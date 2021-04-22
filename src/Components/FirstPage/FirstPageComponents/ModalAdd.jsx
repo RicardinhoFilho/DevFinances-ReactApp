@@ -7,7 +7,7 @@ import {
   Button,
 } from "@material-ui/core";
 
-const ModalAdd = ({option}) => {
+const ModalAdd = ({option, setModalAddState}) => {
   const [open, setOpen] = useState(option);
   useEffect(() => {
     if (open != option) {
@@ -20,6 +20,7 @@ const ModalAdd = ({option}) => {
 
   const handleClose = () => {
     setOpen(false);
+    setModalAddState(false);
   };
 
   return (
