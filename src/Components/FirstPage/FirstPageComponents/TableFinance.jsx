@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./FirstPage.css";
 import editImage from "./Assets/Edit.svg";
 import trashImage from "./Assets/Trash.svg";
@@ -17,41 +17,55 @@ import {
   Paper,
 } from "@material-ui/core";
 
-const TableComponent = ( ) => {
+const TableComponent = () => {
   const [itemId, setItemId] = useState(0);
   const [modalEditState, setModalEditState] = useState(false);
   const [modalDeleteState, setModalDeleteState] = useState(false);
-
-  
+  const [data, setData] = useState([]);
 
   const modalEditOpen = () => {
     if (modalEditState === true) {
-      return <ModalEdit option={modalEditState} id={itemId}  setModalEditState={setModalEditState} />;
+      return (
+        <ModalEdit
+          option={modalEditState}
+          id={itemId}
+          setModalEditState={setModalEditState}
+        />
+      );
     }
   };
 
   const modalDeleteOpen = () => {
     if (modalDeleteState === true) {
-      return <ModalDelete option={modalDeleteState} id={itemId} setModalDeleteState={setModalDeleteState} />;
+      return (
+        <ModalDelete
+          option={modalDeleteState}
+          id={itemId}
+          setModalDeleteState={setModalDeleteState}
+        />
+      );
     }
   };
 
-  async function getTransactions(){
+  async function getTransactions() {
+    try {
+      const response = await axios.get("http://localhost:8000/transactions");
 
-    const response = await axios.get("http://localhost:3333/transactions")
-
-  } 
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+      setData(response.data);
+      console.log("Este", response.data);
+      return response.data;
+      //console.log(JSON.stringify(response))
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  const rows = [
-    createData("Frozen yoghurt", 1, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 2, 9.0, 37, 4.3),
-    createData("Eclair", 3, 16.0, 24, 6.0),
-    createData("Cupcake", 4, 3.7, 67, 4.3),
-    createData("Gingerbread", 5, 16.0, 49, 3.9),
-  ];
+  function createData(id, title, _value, _date) {
+    console.log("id=>", id);
+    return { id, title, _value, _date };
+  }
+
+  
 
   return (
     <div id="table-finance">
@@ -65,18 +79,20 @@ const TableComponent = ( ) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name}>
+            {data.map((row) => (
+              <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {row.title}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
+                <TableCell align="right">{row._value}</TableCell>
+                <TableCell align="right">{row._date}</TableCell>
                 <TableCell align="right">
                   <button
                     className="edit-button"
                     onClick={(event) => {
+                      console.log("cliquei");
                       setItemId(1);
+
                       setModalEditState(true);
                     }}
                   >
@@ -87,7 +103,7 @@ const TableComponent = ( ) => {
                     onClick={(event) => {
                       setItemId(2);
                       setModalDeleteState(true);
-                      console.log(modalDeleteState)
+                      console.log(modalDeleteState);
                     }}
                   >
                     <img src={trashImage} alt="Delete" />
@@ -100,7 +116,6 @@ const TableComponent = ( ) => {
       </TableContainer>
       {modalDeleteOpen()}
       {modalEditOpen()}
-      
     </div>
   );
 };
