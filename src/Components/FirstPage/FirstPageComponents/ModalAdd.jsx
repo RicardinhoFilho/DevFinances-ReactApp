@@ -7,25 +7,25 @@ import {
   Button,
 } from "@material-ui/core";
 
-const ModalAdd = (option) => {
-  const [defineModal, setDefineModal] = useState(false);
-
+const ModalAdd = ({option}) => {
+  const [open, setOpen] = useState(option);
   useEffect(() => {
-    if (defineModal != option) {
-      setDefineModal(option);
+    if (open != option) {
+      setOpen(option);
     }
-  }, {});
+  });
   const handleOpen = () => {
-    setDefineModal(true);
+    setOpen(true);
   };
 
-
-  const closeModal = ()=>{
-    setDefineModal(false)
-  }
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <Modal open={defineModal} onClose={!setDefineModal}>
+    
+    <Modal  open={open}
+    onClose={handleClose}>
       <div className="modal">
         <Typography variant="h6" align="center" className="title">
           Adicionar Transação!
@@ -47,7 +47,7 @@ const ModalAdd = (option) => {
             color="secondary"
             id="button"
             onClick={(event) => {
-                setDefineModal(false);
+                handleClose();
               }}
           >
             Cancelar

@@ -11,7 +11,7 @@ const AddTransactionButton = (option) => {
     if (modalAddState === true) {
       
       console.log(modalAddState)
-      return <ModalAdd option={modalAddState} />;
+      return <ModalAdd option={true} />;
     }
   };
   
@@ -30,6 +30,7 @@ const AddTransactionButton = (option) => {
     </Button>
 
     {modalAddOpen()}
+    {/* {setModalAddState(false)} */}
     </>
   );
 };
