@@ -51,13 +51,13 @@ const CardFinance = ({data}) => {
 
         <Typography variant="h4" component="span" id="card-value" className="card">
         <img src={incomeImage}/><br/>
-        {`R$${income}`} 
+        {`R$${income.toFixed(2)}`} 
         </Typography>
       
       
         <Typography variant="h4" component="span" align="left" id="card-value" className="card">
         <img src={expenseImage}/><br/>
-        {`R$${expense * -1}`}
+        {`R$${(expense * -1).toFixed(2)}`}
         </Typography>
 
         <Typography variant="h4" component="span" align="left" id="card-value" className={total > 0 ? "positiveTotal" : "negativeTotal"}>
