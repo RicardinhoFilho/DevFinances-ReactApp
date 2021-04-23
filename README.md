@@ -1,4 +1,4 @@
-<h1 style="text-align: center;"><img src="./src/Components/FirstPage/FirstPageComponents/Assets/money.svg" alt="Money" style="width:50px;"> DevFinances React-App <img src="./src/Components/FirstPage/FirstPageComponents/Assets/money.svg" alt="Money" style="width:50px;"></h1>
+<h1 style="text-align: center;"><img src="./src/Components/FirstPage/FirstPageComponents/Assets/money.svg" alt="Money" style="width:34px;"> DevFinances React-App <img src="./src/Components/FirstPage/FirstPageComponents/Assets/money.svg" alt="Money" style="width:34px;"></h1>
   
 <h2>🚀 Technologies</h2>
 
