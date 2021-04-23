@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { formatVisualDate } from "./utils/formatVisualDate";
 import { Modal } from "@material-ui/core";
 import { Typography, TextField, Button } from "@material-ui/core";
 const ModalDelete = ({ option, setModalDeleteState, item }) => {
@@ -33,13 +34,10 @@ const ModalDelete = ({ option, setModalDeleteState, item }) => {
         </Typography>
 
         <div className="delete-item-information">
-          <Typography variant="h4" className="delete-text">
-            {`$${item._value}`}
-          </Typography>
+        <TextField value={`R$${item._value}`} margin="normal" />
+          <br />
 
-          <Typography variant="h4" className="delete-text">
-            {item._date}
-          </Typography>
+          <TextField value={formatVisualDate(item._date)} margin="normal" />
         </div>
 
         <Button

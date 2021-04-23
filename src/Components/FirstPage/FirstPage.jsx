@@ -21,7 +21,7 @@ const FirstPage = () => {
 
   useEffect(()=>{
    getTransactions();
-    console.log("num deu" ,data)
+    //console.log("num deu" ,data)
   }, data)
   return (
     <div>

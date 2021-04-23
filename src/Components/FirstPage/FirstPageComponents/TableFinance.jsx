@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import {formatVisualDate} from "./utils/formatVisualDate"
 import "./FirstPage.css";
 import editImage from "./Assets/Edit.svg";
 import trashImage from "./Assets/Trash.svg";
@@ -66,7 +67,7 @@ const TableComponent = ({data}) => {
                   {transaction.title}
                 </TableCell>
                 <TableCell align="right">{transaction._value}</TableCell>
-                <TableCell align="right">{transaction._date}</TableCell>
+                <TableCell align="right">{formatVisualDate(transaction._date)}</TableCell>
                 <TableCell align="right">
                   <button
                     className="edit-button"
