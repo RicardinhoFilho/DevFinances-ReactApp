@@ -9,6 +9,7 @@ const CardFinance = ({data}) => {
     sum()
     setIncome(testIncome)
     setExpense(testExpense)
+    calcTotal()
     testIncome = 0
     testExpense = 0;
     
@@ -16,6 +17,7 @@ const CardFinance = ({data}) => {
 
   const[income, setIncome] = useState(0);
   const[expense, setExpense] = useState(0);
+  const[total, setTotal] = useState(0);
   
   let testIncome = 0;
   let testExpense = 0;
@@ -32,6 +34,10 @@ const CardFinance = ({data}) => {
       }
     })
   }
+
+  const calcTotal= ()=>{
+    setTotal(testIncome + testExpense);
+  }
   
   
 
@@ -41,12 +47,16 @@ const CardFinance = ({data}) => {
     <div className="cards">
      
         <Typography variant="h4" component="span" id="card-value">
-        {income}
+        {`R$${income}`}
         </Typography>
       
       
         <Typography variant="h4" component="span" align="left" id="card-value">
-        {expense}
+        {`R$${expense}`}
+        </Typography>
+
+        <Typography variant="h4" component="span" align="left" id="card-value">
+        {`R$${total}`}
         </Typography>
      
     </div>

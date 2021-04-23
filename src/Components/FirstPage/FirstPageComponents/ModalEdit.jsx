@@ -42,7 +42,7 @@ const ModalEdit = ({ option, setModalEditState, item }) => {
   return (
     <Modal open={open} onClose={handleClose}>
       <div className="modal">
-        <Typography variant="h6" align="center" className="title">
+        <Typography variant="h6" align="center" id="title">
           Editar Transação
         </Typography>
         <form

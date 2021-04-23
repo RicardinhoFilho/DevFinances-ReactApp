@@ -43,7 +43,7 @@ const ModalAdd = ({ option, setModalAddState }) => {
   return (
     <Modal open={open} onClose={handleClose}>
       <div className="modal">
-        <Typography variant="h6" align="center" className="title">
+        <Typography variant="h6" align="center" id="title">
           Adicionar Transação!
         </Typography>
         <form

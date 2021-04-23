@@ -26,7 +26,7 @@ const ModalDelete = ({ option, setModalDeleteState, item }) => {
   return (
     <Modal open={open} onClose={handleClose}>
       <div className="modal">
-        <Typography variant="h6" align="center" className="title">
+        <Typography variant="h6" align="center" id="title">
           Deletar Transação
         </Typography>
         <Typography variant="h3" align="center" className="delete-text">

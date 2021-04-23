@@ -5,17 +5,18 @@
 }
 /*Header------------------------------------------------------------------------------------------------------------*/
 
-.title {
+#title {
   color: white;
   background-color: var(--dark-green);
+
   padding: 1em;
 }
 
 /*Card----------------------------------------------------------------------------------------------------------------------*/
 
 .cards {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 #card-value {
@@ -23,8 +24,10 @@
   margin-top: -0.6em;
   margin-bottom: 2em;
 
-  padding-right: 1em;
-  padding-left: 1em;
+  font-size: 25px;
+
+  padding-right: 0.8em;
+  padding-left: 0.8em;
 
   background-color: white;
   color: var(--dark-blue);
@@ -35,8 +38,8 @@
 /*Table----------------------------------------------------------------------------------------------------------------------*/
 
 #table-finance {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 /*Buttons----------------------------------------------------------------------------------------------------------------------*/
@@ -78,14 +81,13 @@
   margin-top: 10%;
 }
 
-.delete-text{
+.delete-text {
   color: var(--dark-blue);
 }
 
-.delete-item-information{
-
+.delete-item-information {
   display: grid;
-  grid-template-columns: repeat(2,0.5fr);
+  grid-template-columns: repeat(2, 0.5fr);
 
   margin-top: 2vw;
   margin-bottom: 3vw;
@@ -109,9 +111,19 @@ form {
   margin-left: 1vw;
 }
 
-#add-transaction-button{
-  
- margin-left: 40vw;
- margin-bottom: 2vw;
+#add-transaction-button {
+  margin-left: 40vw;
+  margin-bottom: 2vw;
+}
 
+@media (max-width: 800px) 
+{
+  #table-finance {
+    margin-left: 15vw;
+    margin-right: 0px;
+  }
+  
+  #title {
+    margin-left: 17.2vw;
+  }
 }
