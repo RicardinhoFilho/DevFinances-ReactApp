@@ -10,7 +10,10 @@ import {
 
 const ModalAdd = ({option, setModalAddState}) => {
   const [open, setOpen] = useState(option);
-  const [transaction, setTransaction] = useState();
+  const [title, setTitle] = useState("");
+  const [_value, setValue] = useState(0);
+  const [_date, setDate] = useState("");
+  const[error, setError] =useState();
   useEffect(() => {
     if (open != option) {
       setOpen(option);
@@ -26,7 +29,14 @@ const ModalAdd = ({option, setModalAddState}) => {
   };
 
   const submit = async()=>{
-    const post =  await axios.post("http://localhost:8000/transactions", { });
+    try{
+      console.log({title, _value, _date })
+       axios.post("http://localhost:8000/transactions", {title, _value, _date });
+    }catch(err){
+      console.log(err);
+    }
+      
+    
   }
 
   return (
@@ -38,15 +48,23 @@ const ModalAdd = ({option, setModalAddState}) => {
           Adicionar Transação!
         </Typography>
         <form>
-          <TextField label="Título" margin="normal" required />
+          <TextField label="Título" margin="normal" value={title} required onChange={(event)=>{
+            setTitle(event.target.value);
+          }}/>
           <br />
-          <TextField label="Valor" margin="normal" required />
+          <TextField label="Valor" margin="normal" required value={_value} onChange={(event)=>{
+            setValue(event.target.value);
+          }}/>
           <br />
           <TextField
             id="date"
             label="Data Transação"
             type="date"
-           
+           required
+           value={_date}
+           onChange={(event)=>{
+             setDate(event.target.value)
+           }}
           />
 
           <Button
@@ -59,7 +77,7 @@ const ModalAdd = ({option, setModalAddState}) => {
           >
             Cancelar
           </Button>
-          <Button type="submit" variant="contained" color="primary" id="button" onSubmit={()=>{
+          <Button type="submit" variant="contained" color="primary" id="button" onClick={()=>{
             submit();
             
           }}>

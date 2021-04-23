@@ -12,7 +12,7 @@ const FirstPage = () => {
       const response = await axios.get("http://localhost:8000/transactions");
 
       setData(response.data);
-      console.log("Este", response.data);
+      //console.log("Este", response.data);
       return response.data;
     } catch (err) {
       console.log(err);

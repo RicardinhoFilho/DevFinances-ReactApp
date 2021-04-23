@@ -21,8 +21,6 @@ const TableComponent = ({data}) => {
   const [modalEditState, setModalEditState] = useState(false);
   const [modalDeleteState, setModalDeleteState] = useState(false);
   const [transactions, setTransactions] = useState(data);
-
-  console.log("pqp",data)
   
   const modalEditOpen = () => {
     if (modalEditState === true) {
