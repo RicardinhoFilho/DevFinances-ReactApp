@@ -9,7 +9,6 @@
         Material-UI
     </li></ul>
     </li>
-    <li>JavaScript</li>
     <li>ReactJs</li>
     <li>Axios</li>
 </ul>
