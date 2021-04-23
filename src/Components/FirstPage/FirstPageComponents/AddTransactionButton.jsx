@@ -6,7 +6,7 @@ import "./FirstPage.css";
 const AddTransactionButton = (option) => {
   const [modalAddState, setModalAddState] = useState(false);
 
-
+  
   const modalAddOpen = () => {
     if (modalAddState === true) {
       return <ModalAdd option={modalAddState} setModalAddState={setModalAddState} />;

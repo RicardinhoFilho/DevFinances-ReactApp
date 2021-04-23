@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Modal } from "@material-ui/core";
-import {Typography, TextField, Button } from "@material-ui/core";
+import { Typography, TextField, Button } from "@material-ui/core";
 const ModalDelete = ({ option, setModalDeleteState, item }) => {
   const [open, setOpen] = useState(option);
   useEffect(() => {
@@ -15,6 +16,10 @@ const ModalDelete = ({ option, setModalDeleteState, item }) => {
   const handleClose = () => {
     setOpen(false);
     setModalDeleteState(false);
+  };
+  console.log(item.id);
+  const toDelete = async () => {
+    axios.delete(`http://localhost:8000/transactions/${item.id}`);
   };
 
   return (
@@ -33,7 +38,7 @@ const ModalDelete = ({ option, setModalDeleteState, item }) => {
           </Typography>
 
           <Typography variant="h4" className="delete-text">
-          {item._date}
+            {item._date}
           </Typography>
         </div>
 
@@ -47,7 +52,16 @@ const ModalDelete = ({ option, setModalDeleteState, item }) => {
         >
           Cancelar
         </Button>
-        <Button type="submit" variant="contained" color="primary" id="button">
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          id="button"
+          onClick={() => {
+            toDelete();
+            document.location.reload();
+          }}
+        >
           Confirmar
         </Button>
       </div>

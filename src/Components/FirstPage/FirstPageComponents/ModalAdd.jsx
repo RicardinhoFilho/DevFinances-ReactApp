@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios"
 import { Modal } from "@material-ui/core";
 import {
   Card,
@@ -9,6 +10,7 @@ import {
 
 const ModalAdd = ({option, setModalAddState}) => {
   const [open, setOpen] = useState(option);
+  const [transaction, setTransaction] = useState();
   useEffect(() => {
     if (open != option) {
       setOpen(option);
@@ -22,6 +24,10 @@ const ModalAdd = ({option, setModalAddState}) => {
     setOpen(false);
     setModalAddState(false);
   };
+
+  const submit = async()=>{
+    const post =  await axios.post("http://localhost:8000/transactions", { });
+  }
 
   return (
     
@@ -53,7 +59,10 @@ const ModalAdd = ({option, setModalAddState}) => {
           >
             Cancelar
           </Button>
-          <Button type="submit" variant="contained" color="primary" id="button">
+          <Button type="submit" variant="contained" color="primary" id="button" onSubmit={()=>{
+            submit();
+            
+          }}>
             Confirmar
           </Button>
         </form>

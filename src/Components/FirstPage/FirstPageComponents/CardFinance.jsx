@@ -14,7 +14,7 @@ const CardFinance = ({data}) => {
     
   })
 
-  const[income, setIncome] = useState(-1);
+  const[income, setIncome] = useState(0);
   const[expense, setExpense] = useState(0);
   
   let testIncome = 0;
