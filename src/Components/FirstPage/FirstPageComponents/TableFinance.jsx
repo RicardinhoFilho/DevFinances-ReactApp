@@ -4,7 +4,6 @@ import editImage from "./Assets/Edit.svg";
 import trashImage from "./Assets/Trash.svg";
 import ModalEdit from "./ModalEdit";
 import ModalDelete from "./ModalDelete";
-import axios from "axios";
 
 //http://localhost:3333/transactions
 import {
@@ -17,16 +16,14 @@ import {
   Paper,
 } from "@material-ui/core";
 
-const TableComponent = () => {
+const TableComponent = ({data}) => {
   const [item, setItem] = useState([]);
   const [modalEditState, setModalEditState] = useState(false);
   const [modalDeleteState, setModalDeleteState] = useState(false);
-  const [data, setData] = useState([]);
+  const [transactions, setTransactions] = useState(data);
 
-  useEffect(()=>{
-    getTransactions();
-  }, data)
-
+  console.log("pqp",data)
+  
   const modalEditOpen = () => {
     if (modalEditState === true) {
       return (
@@ -50,19 +47,6 @@ const TableComponent = () => {
       );
     }
   };
-
-  async function getTransactions() {
-    try {
-      const response = await axios.get("http://localhost:8000/transactions");
-
-      setData(response.data);
-      console.log("Este", response.data);
-      return response.data;
-      //console.log(JSON.stringify(response))
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
   
 
