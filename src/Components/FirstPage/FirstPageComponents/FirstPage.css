@@ -2,6 +2,7 @@
   --dark-blue: #5e365f;
   --dark-green: #2d4a22;
   --light-green: #3dd705;
+  --light-red:#ff0000;
 }
 /*Header------------------------------------------------------------------------------------------------------------*/
 
@@ -29,10 +30,23 @@
   padding-right: 0.8em;
   padding-left: 0.8em;
 
-  background-color: white;
+  
   color: var(--dark-blue);
 
   border-radius: 0.5rem;
+}
+
+.card{
+  background-color:white;
+}
+
+.positiveTotal{
+  background-color:var(--light-green);;
+}
+
+.negativeTotal{
+  background-color:var(--light-red);
+  opacity:0.8;
 }
 
 /*Table----------------------------------------------------------------------------------------------------------------------*/
@@ -40,6 +54,14 @@
 #table-finance {
   margin-left: 5vw;
   margin-right: 5vw;
+}
+
+#incomeRow{
+  color: var(--light-green);
+}
+
+#expenseRow{
+  color: var(--light-red);
 }
 
 /*Buttons----------------------------------------------------------------------------------------------------------------------*/
@@ -116,6 +138,13 @@ form {
   margin-bottom: 2vw;
 }
 
+/*Image----------------------------------------------------------------------------------------------------------------------*/
+.moneyImage{
+  width:40px;
+  height:40px;
+}
+
+/*Responsive----------------------------------------------------------------------------------------------------------------------*/
 @media (max-width: 800px) 
 {
   #table-finance {
@@ -125,5 +154,9 @@ form {
   
   #title {
     margin-left: 17.2vw;
+  }
+
+  .tab{
+
   }
 }

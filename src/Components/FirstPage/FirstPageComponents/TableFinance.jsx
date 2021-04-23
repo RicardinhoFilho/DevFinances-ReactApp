@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from "react";
-import {formatVisualDate} from "./utils/formatVisualDate"
+import React, { useState, useEffect } from "react";
+import { formatVisualDate } from "./utils/formatVisualDate";
 import "./FirstPage.css";
 import editImage from "./Assets/Edit.svg";
 import trashImage from "./Assets/Trash.svg";
@@ -17,12 +17,12 @@ import {
   Paper,
 } from "@material-ui/core";
 
-const TableComponent = ({data}) => {
+const TableComponent = ({ data }) => {
   const [item, setItem] = useState([]);
   const [modalEditState, setModalEditState] = useState(false);
   const [modalDeleteState, setModalDeleteState] = useState(false);
   const [transactions, setTransactions] = useState(data);
-  
+
   const modalEditOpen = () => {
     if (modalEditState === true) {
       return (
@@ -47,8 +47,6 @@ const TableComponent = ({data}) => {
     }
   };
 
-  
-
   return (
     <div id="table-finance">
       <TableContainer component={Paper} className="table">
@@ -66,15 +64,15 @@ const TableComponent = ({data}) => {
                 <TableCell component="th" scope="row">
                   {transaction.title}
                 </TableCell>
-                <TableCell align="right">{transaction._value}</TableCell>
-                <TableCell align="right">{formatVisualDate(transaction._date)}</TableCell>
+                <TableCell align="right" id={transaction._value > 0 ? "incomeRow" : "expenseRow" }>{transaction._value}</TableCell>
+                <TableCell align="right">
+                  {formatVisualDate(transaction._date)}
+                </TableCell>
                 <TableCell align="right">
                   <button
                     className="edit-button"
                     onClick={(event) => {
-                      
                       setItem(transaction);
-                     console.log(transaction)
 
                       setModalEditState(true);
                     }}
